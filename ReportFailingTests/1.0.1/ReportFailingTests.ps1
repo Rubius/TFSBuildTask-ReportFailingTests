@@ -5,7 +5,7 @@ param(
 
 [Reflection.Assembly]::LoadWithPartialName("System.Xml.Linq") | Out-Null
 
-Write-Verbose "Entering script IncludeFailedTestsInBuildLog.ps1"
+Write-Verbose "Entering script ReportFailingTests.ps1"  
 
 #uncomment to debug locally
 #$workingDirectory = "d:\Work\vsts-tasks-master\"
@@ -31,4 +31,4 @@ if ($trxFiles.Length -gt 0)
 	}
 }
  
-Write-Verbose "Leaving script  IncludeFailedTestsInBuildLog.ps1"
+Write-Verbose "Leaving script ReportFailingTests.ps1"
