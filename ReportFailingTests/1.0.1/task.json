@@ -23,7 +23,7 @@
   "instanceNameFormat": "Include failed tests in build log",
   "execution": {
     "PowerShell": {
-      "target": "$(currentDirectory)\\VSTest.ps1",
+      "target": "$(currentDirectory)\\ReportFailingTests.ps1",
       "argumentFormat": "",
       "workingDirectory": "$(currentDirectory)"
     }

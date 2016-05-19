@@ -15,4 +15,8 @@ to be able to see the failing test names right from the email notification.
 
 The task should be added to the build pipeline after Visual Studio Test task.
 
-//ToDo: Add a tutorial on how to add this task to TFS.
+## Installation
+
+You could either:
+ - upload this task to your TFS using the [script](/UploadTaskToTFS.ps1), taken from (https://blogs.infosupport.com/custom-build-tasks-in-tfs-2015/)
+ - download [the script](/ReportFailingTests/1.0.1/ReportFailingTests.ps1), add it to your version control and use it as a Powershell build task.
