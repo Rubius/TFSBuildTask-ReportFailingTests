@@ -1,0 +1,31 @@
+{
+  "id": "718b155e-b7bc-4400-83fa-a49a16579e02",
+  "name": "ReportFailingTests",
+  "friendlyName": "Report failing tests",
+  "description": "Include failed tests in build log so that they will be emailed",
+  "category": "Test",
+  "visibility": [
+                "Build",
+                "Release"
+                ],
+  "author": "Rubius",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 1
+  },
+  "demands": [
+    "vstest"
+  ],
+  "minimumAgentVersion": "1.89.0",
+  "inputs": [
+  ],
+  "instanceNameFormat": "Include failed tests in build log",
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\VSTest.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}
