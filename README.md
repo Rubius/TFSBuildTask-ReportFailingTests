@@ -14,3 +14,5 @@ to:
 to be able to see the failing test names right from the email notification.
 
 The task should be added to the build pipeline after Visual Studio Test task.
+
+//ToDo: Add a tutorial on how to add this task to TFS.
