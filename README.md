@@ -13,7 +13,7 @@ to:
 
 to be able to see the failing test names right from the email notification.
 
-The task should be added to the build pipeline after Visual Studio Test task.
+The task should be added to the build pipeline after Visual Studio Test task. __Always run checkbox should be checked for the task__
 
 ## Installation
 

@@ -5,7 +5,7 @@ param(
 
 [Reflection.Assembly]::LoadWithPartialName("System.Xml.Linq") | Out-Null
 
-Write-Verbose "Entering script ReportFailingTests.ps1"  
+Write-Host "Entering script ReportFailingTests.ps1"  
 
 #uncomment to debug locally
 #$workingDirectory = "d:\Work\vsts-tasks-master\"
@@ -16,7 +16,7 @@ $trxFiles = [System.IO.Directory]::GetFiles($testResultsDirectory, "*.trx")
 if ($trxFiles.Length -gt 0) 
 {
 	$trx = $trxFiles[0]
-	Write-Verbose "Parsing trx $trx"  	
+	Write-Host "Parsing trx $trx"  	
 
 	$doc = [System.Xml.Linq.XDocument]::Load($trx)
 	
@@ -27,8 +27,9 @@ if ($trxFiles.Length -gt 0)
 	#limit to 10, because otherwise errors are not included in the emailed log
         foreach ($test in $failedTests | select -First 10) 
 	{
-		Write-Host "##vso[task.logissue type=error;]" $test.Attribute("testName").Value
+		$error = "##vso[task.logissue type=error;]" + $test.Attribute("testName").Value.Trim()
+		Write-Host $error
 	}
 }
  
-Write-Verbose "Leaving script ReportFailingTests.ps1"
+Write-Host "Leaving script ReportFailingTests.ps1"
