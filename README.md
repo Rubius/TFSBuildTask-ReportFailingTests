@@ -13,7 +13,9 @@ to:
 
 to be able to see the failing test names right from the email notification.
 
-The task should be added to the build pipeline after Visual Studio Test task. __Always run checkbox should be checked for the task__
+The task should be added to the build pipeline after Visual Studio Test task. __"Always run" checkbox should be checked for the task__
+This is how build colfiguration could look:
+![build configuration](/BuildConfiguration.png)
 
 ## Installation
 
