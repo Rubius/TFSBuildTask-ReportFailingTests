@@ -9,9 +9,15 @@ Write-Host "Entering script ReportFailingTests.ps1"
 
 #uncomment to debug locally
 #$workingDirectory = "d:\Work\vsts-tasks-master\"
-$testResultsDirectory = $Env:COMMON_TESTRESULTSDIRECTORY
 
-$trxFiles = [System.IO.Directory]::GetFiles($testResultsDirectory, "*.trx")
+foreach ($path in @($Env:COMMON_TESTRESULTSDIRECTORY, [System.IO.Path]::Combine($Env:BUILD_SOURCESDIRECTORY, "TestResults"))) {
+    $trxFiles = [System.IO.Directory]::GetFiles($path, "*.trx")
+    Write-Host "Checking: $path"
+
+    if ($trxFiles.Length -gt 0) {
+        break;
+    }
+}
 
 if ($trxFiles.Length -gt 0) 
 {
@@ -30,6 +36,8 @@ if ($trxFiles.Length -gt 0)
 		$error = "##vso[task.logissue type=error;]" + $test.Attribute("testName").Value.Trim()
 		Write-Host $error
 	}
+} else {
+    Write-Host "No test results (*.trx) files found"
 }
  
 Write-Host "Leaving script ReportFailingTests.ps1"

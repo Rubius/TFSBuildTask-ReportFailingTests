@@ -1,3 +1,4 @@
+#.\UploadTaskToTFS.ps1 -TaskPath ReportFailingTests/1.0.1 -TfsUrl https://tfs.dplabs.org/tfs -Overwrite
 param(
    [Parameter(Mandatory=$true)][string]$TaskPath,
    [Parameter(Mandatory=$true)][string]$TfsUrl,
